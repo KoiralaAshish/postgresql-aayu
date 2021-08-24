@@ -31,8 +31,7 @@ public class UserRestController {
 
 	@Autowired
 	private UserRepository urepo;
-	@Autowired
-	private HospitalRepo hrepo;
+	
 	
 	
 	@GetMapping("/api/user/list")
