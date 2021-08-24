@@ -9,19 +9,21 @@ public class Patient {
 
 	@Id
 	@GeneratedValue
-	private int patientId;
+	private int patient_id;
 	private String sex;
 	private int age;
 	private String bloodGroup;
 	private String PatientCase;
 	private String emergencyStatus;
 	
-	public int getPatientId() {
-		return patientId;
+
+	public int getPatient_id() {
+		return patient_id;
 	}
-	public void setPatientId(int patientId) {
-		this.patientId = patientId;
+	public void setPatient_id(int patient_id) {
+		this.patient_id = patient_id;
 	}
+	
 	public String getSex() {
 		return sex;
 	}

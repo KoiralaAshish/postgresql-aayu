@@ -12,7 +12,7 @@ public class Doctor {
 	
 @Id
 @GeneratedValue
-	private int doctorId;
+	private int doctor_id;
 private String doctorName;
 private byte[] image;
 
@@ -38,11 +38,12 @@ public byte[] getImage() {
 public void setImage(byte[] image) {
 	this.image = image;
 }
-public int getDoctorId() {
-	return doctorId;
+
+public int getDoctor_id() {
+	return doctor_id;
 }
-public void setDoctorId(int doctorId) {
-	this.doctorId = doctorId;
+public void setDoctor_id(int doctor_id) {
+	this.doctor_id = doctor_id;
 }
 public String getDoctorName() {
 	return doctorName;

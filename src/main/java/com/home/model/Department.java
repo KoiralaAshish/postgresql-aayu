@@ -19,14 +19,15 @@ public class Department {
 	
 	@Id
 	@GeneratedValue
-	private int departmentId;
+	private int department_id;
 	
-			public int getDepartmentId() {
-		return departmentId;
+		
+	public int getDepartment_id() {
+		return department_id;
 	}
 
-	public void setDepartmentId(int departmentId) {
-		this.departmentId = departmentId;
+	public void setDepartment_id(int department_id) {
+		this.department_id = department_id;
 	}
 
 	private String department_name;

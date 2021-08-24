@@ -11,28 +11,29 @@ import javax.persistence.OneToOne;
 public class Cases {
 @Id
 @GeneratedValue
-	private int casesId;
+	private int cases_id;
 	private String status;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="patientId")
+	@JoinColumn(name="patient_id")
 	private Patient patient;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="doctorId")
+	@JoinColumn(name="doctor_id")
 	private Doctor doctor;
 	
+	public int getCases_id() {
+		return cases_id;
+	}
+	public void setCases_id(int cases_id) {
+		this.cases_id = cases_id;
+	}
 	public Doctor getDoctor() {
 		return doctor;
 	}
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
-	public int getCasesId() {
-		return casesId;
-	}
-	public void setCasesId(int casesId) {
-		this.casesId = casesId;
-	}
+	
 	public String getStatus() {
 		return status;
 	}

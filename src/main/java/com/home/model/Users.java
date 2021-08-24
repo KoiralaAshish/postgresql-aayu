@@ -11,41 +11,37 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
-
-public class User {
+public class Users {
 	
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int userId;
+	@GeneratedValue
+	private int user_id;
 	
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+	
 	private String username;
 	private String password;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="hospitalId")
+	@JoinColumn(name="hospital_id")
 	private Hospital hospital;
 	
+		
 	
 	
 	
-	
-	
-	
-	
-	
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 	public Hospital getHospital() {
 		return hospital;
 	}
