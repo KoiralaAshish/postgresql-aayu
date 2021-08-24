@@ -23,7 +23,7 @@ public class DepartmentRestController {
 	
 	
 	
-@PostMapping("/api/department/add")
+@PostMapping("/api/department/register")
 public String addDepartment(@RequestBody Department d)
 {
 	drepo.save(d);

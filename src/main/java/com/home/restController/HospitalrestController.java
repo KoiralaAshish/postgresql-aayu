@@ -36,12 +36,28 @@ public class HospitalrestController {
 	
 	
 	@PostMapping("/api/hospital/register")
-	public String addHospital(@RequestBody Hospital h)
+	public Integer addHospital(@RequestBody Hospital h)
 	{
 		
-		hrepo.save(h);
+		Integer a= hrepo.hospitalIdFind(h.getHospital_name());
 		
-		return "new hospital added";
+		if(a==null)
+		{
+			
+			hrepo.save(h);
+			return hrepo.hospitalIdFind(h.getHospital_name());
+		}
+		
+		else
+		{
+			return a;
+			
+		}
+		
+		
+		
+		
+		
 		
 		
 	}

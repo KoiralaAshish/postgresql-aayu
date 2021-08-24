@@ -17,9 +17,13 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	User findByUsernameAndPassword(String un, String psw);
 	
-	@Query(value="select hospital_id from user where username=:un and password=:psw",nativeQuery = true)
+	@Query(value="select user_id from user where username=:un and password=:psw",nativeQuery = true)
 	
 	Integer userIdFind(@Param("un") String un, @Param ("psw") String psw);
+	
+@Query(value="select hospital_id from user where username=:un and password=:psw",nativeQuery = true)
+	
+	Integer hospitalIdFind(@Param("un") String un, @Param ("psw") String psw);
 	
 	
 @Query(value="update user set hospital_id=1 where username=:un and password=:psw and hospital.hospital_id=user.user_id",nativeQuery = true)

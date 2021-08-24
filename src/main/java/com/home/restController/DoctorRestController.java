@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.home.model.Doctor;
@@ -32,6 +34,12 @@ public class DoctorRestController {
 		
 	}
 	
+	@PostMapping("/api/doctor/register")
+	public String addDoctor(@RequestBody Doctor d)
+	{
+		drrepo.save(d);
+		return "doctor added";
+	}
 	
 	
 	

@@ -20,11 +20,11 @@ public class Hospital {
 	
 	@Id
 	@GeneratedValue
-private int hospitalId;
-private String hospitalName;
+private int hospital_id;
+private String hospital_name;
 
 @OneToMany(cascade = CascadeType.ALL)
-@JoinColumn(name = "HospitalId")
+@JoinColumn(name = "hospital_id")
 private Set<Department> department = new HashSet<>();
 
 
@@ -37,25 +37,26 @@ public void setDepartment(Set<Department> department) {
 	this.department = department;
 }
 
-
-
-
-
-public Integer getHospitalId() {
-	return hospitalId;
+public int getHospital_id() {
+	return hospital_id;
 }
 
-public void setHospitalId(Integer hospitalId) {
-	this.hospitalId = hospitalId;
+public void setHospital_id(int hospital_id) {
+	this.hospital_id = hospital_id;
 }
 
-public String getHospitalName() {
-	return hospitalName;
+public String getHospital_name() {
+	return hospital_name;
 }
 
-public void setHospitalName(String hospitalName) {
-	this.hospitalName = hospitalName;
+public void setHospital_name(String hospital_name) {
+	this.hospital_name = hospital_name;
 }
+
+
+
+
+
 
 
 

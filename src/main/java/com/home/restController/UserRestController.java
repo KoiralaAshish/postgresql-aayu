@@ -60,7 +60,7 @@ public class UserRestController {
 		else
 		{
 		
-			return urepo.userIdFind(u.getUsername(), u.getPassword());
+			return urepo.hospitalIdFind(u.getUsername(), u.getPassword());
 			
 			
 		
@@ -71,7 +71,7 @@ public class UserRestController {
 			
 	
 	@PostMapping("/api/user/register")
-	public String addUser(@RequestBody User u)
+	public Integer addUser(@RequestBody User u)
 	{
 		
 		u.setPassword(DigestUtils.md5DigestAsHex(u.getPassword().getBytes()));
@@ -79,27 +79,29 @@ public class UserRestController {
 		
 		urepo.save(u);
 		
-		return "Added User";
+		
+		return urepo.userIdFind(u.getUsername(), u.getPassword());
 			
 	}
-	
-	@PostMapping("/api/user/hospregister")
-	public Integer addHospUser(@RequestBody User u)
-	{
-		
-		u.setPassword(DigestUtils.md5DigestAsHex(u.getPassword().getBytes()));
-				
-		
-		urepo.save(u);
-		
-		urepo.hospitalSave(u.getUsername(), u.getPassword());
-		Integer i= urepo.userIdFind(u.getUsername(), u.getPassword());
-		return i;
-		
-			
-	}
-	
-	
+	     
+//	
+//	@PostMapping("/api/user/hospregister")
+//	public Integer addHospUser(@RequestBody User u)
+//	{
+//		
+//		u.setPassword(DigestUtils.md5DigestAsHex(u.getPassword().getBytes()));
+//				
+//		
+//		urepo.save(u);
+//		
+//		urepo.hospitalSave(u.getUsername(), u.getPassword());
+//		Integer i= urepo.userIdFind(u.getUsername(), u.getPassword());
+//		return i;
+//		
+//			
+//	}
+//	
+//	
 	
 	
 	
