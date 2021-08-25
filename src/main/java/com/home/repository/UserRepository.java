@@ -15,11 +15,11 @@ public interface UserRepository extends JpaRepository<Users, Integer> {
 	
 	Users findByUsernameAndPassword(String un, String psw);
 	
-	@Query(value="select user_id from user where username=:un and password=:psw",nativeQuery = true)
+	@Query(value="select user_id from users where username=:un and password=:psw",nativeQuery = true)
 	
 	Integer userIdFind(@Param("un") String un, @Param ("psw") String psw);
 	
-@Query(value="select hospital_id from user where username=:un and password=:psw",nativeQuery = true)
+@Query(value="select hospital_id from users where username=:un and password=:psw",nativeQuery = true)
 	
 	Integer hospitalIdFind(@Param("un") String un, @Param ("psw") String psw);
 	

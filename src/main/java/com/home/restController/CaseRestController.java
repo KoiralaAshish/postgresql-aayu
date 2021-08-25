@@ -36,7 +36,7 @@ public class CaseRestController {
 		
 	}
 	
-	@PostMapping("/api/cases/delete/{id}")
+	@GetMapping("/api/cases/delete/{id}")
 	public String deleteCases(@PathVariable ("id") Integer id)
 	{
 		crepo.deleteById(id);
