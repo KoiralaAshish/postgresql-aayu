@@ -19,9 +19,9 @@ public class Patient {
 	}
 	private String sex;
 	private int age;
-	private String bloodGroup;
-	private String PatientCase;
-	private String emergencyStatus;
+	private String blood_group;
+	private String Patient_case;
+	private String emergency_status;
 	
 
 	public int getPatient_id() {
@@ -43,25 +43,24 @@ public class Patient {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getBloodGroup() {
-		return bloodGroup;
+	public String getBlood_group() {
+		return blood_group;
 	}
-	public void setBloodGroup(String bloodGroup) {
-		this.bloodGroup = bloodGroup;
+	public void setBlood_group(String blood_group) {
+		this.blood_group = blood_group;
 	}
-	public String getPatientCase() {
-		return PatientCase;
+	public String getPatient_case() {
+		return Patient_case;
 	}
-	public void setPatientCase(String patientCase) {
-		PatientCase = patientCase;
+	public void setPatient_case(String patient_case) {
+		Patient_case = patient_case;
 	}
-	public String getEmergencyStatus() {
-		return emergencyStatus;
+	public String getEmergency_status() {
+		return emergency_status;
 	}
-	public void setEmergencyStatus(String emergencyStatus) {
-		this.emergencyStatus = emergencyStatus;
+	public void setEmergency_status(String emergency_status) {
+		this.emergency_status = emergency_status;
 	}
-	
 	
 	
 	

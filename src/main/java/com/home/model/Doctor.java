@@ -13,7 +13,7 @@ public class Doctor {
 @Id
 @GeneratedValue
 	private int doctor_id;
-private String doctorName;
+private String doctor_name;
 private byte[] image;
 
 
@@ -45,11 +45,11 @@ public int getDoctor_id() {
 public void setDoctor_id(int doctor_id) {
 	this.doctor_id = doctor_id;
 }
-public String getDoctorName() {
-	return doctorName;
+public String getDoctor_name() {
+	return doctor_name;
 }
-public void setDoctorName(String doctorName) {
-	this.doctorName = doctorName;
+public void setDoctor_name(String doctor_name) {
+	this.doctor_name = doctor_name;
 }
 
 
