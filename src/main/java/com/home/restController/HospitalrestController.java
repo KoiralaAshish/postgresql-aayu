@@ -28,7 +28,7 @@ public class HospitalrestController {
 		return hrepo.findAll();
 	}
 
-	@GetMapping("/api/hospital/{hospitalId}")
+	@PostMapping("/api/hospital/edit/{hospitalId}")
 	public String getHospitalList(@PathVariable ("hospitalId") Integer hospitalId,@RequestBody Hospital h)
 	{
 		h.setHospital_id(hospitalId);
@@ -36,6 +36,14 @@ public class HospitalrestController {
 		hrepo.save(h);
 		return "edit success";
 	}
+	
+	@GetMapping("/api/hospital/{hospitalId}")
+	public Optional<Hospital> getHospitalbyid(@PathVariable ("hospitalId") Integer hospitalId)
+	{
+		
+		return hrepo.findById(hospitalId);
+	}
+	
 	
 	
 	@PostMapping("/api/hospital/register")
