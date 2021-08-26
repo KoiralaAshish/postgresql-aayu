@@ -21,16 +21,7 @@ public class Cases {
 	@JoinColumn(name="doctor_id")
 	private Doctor doctor;
 	
-	public Department getDepartment() {
-		return department;
-	}
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="department_id")
-	private Department department;
-	
+
 	
 	
 	public int getCases_id() {
