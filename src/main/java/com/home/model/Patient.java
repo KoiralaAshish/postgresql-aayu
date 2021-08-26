@@ -10,6 +10,13 @@ public class Patient {
 	@Id
 	@GeneratedValue
 	private int patient_id;
+	private String patient_name;
+	public String getPatient_name() {
+		return patient_name;
+	}
+	public void setPatient_name(String patient_name) {
+		this.patient_name = patient_name;
+	}
 	private String sex;
 	private int age;
 	private String bloodGroup;
