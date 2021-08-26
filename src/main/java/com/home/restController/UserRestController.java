@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.home.model.Hospital;
 import com.home.model.Users;
-
+import com.home.repository.HospitalRepo;
 import com.home.repository.UserRepository;
 
 @RestController
@@ -27,6 +27,8 @@ public class UserRestController {
 
 	@Autowired
 	private UserRepository urepo;
+	@Autowired
+	private HospitalRepo hrepo;
 	
 	
 	
@@ -71,10 +73,18 @@ public class UserRestController {
 		u.setPassword(DigestUtils.md5DigestAsHex(u.getPassword().getBytes()));
 				
 		
+		
+		Hospital h= new Hospital();
+		
+		hrepo.save(h);
+		u.setHospital(h);
+		
+		
+		
 		urepo.save(u);
 		
 		
-		return urepo.userIdFind(u.getUsername(), u.getPassword());
+		return urepo.hospitalIdFind(u.getUsername(), u.getPassword());
 			
 	}
 	     
