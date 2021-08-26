@@ -59,10 +59,11 @@ public class HospitalrestController {
 	}
 		
 		@PostMapping("/api/hospital/register/{hospital_id}")
-		public Integer addHospitalregister(@PathVariable ("hospital_id") Integer hospital_id, @RequestBody Hospital h)
+		public Integer addHospitalregister(@PathVariable ("hospital_id") String hospital_id, @RequestBody Hospital h)
 		{
+			Integer hospitalid= Integer.parseInt(hospital_id);
 			
-			h.setHospital_id(hospital_id);
+			h.setHospital_id(hospitalid);
 			h.setHospital_name(h.getHospital_name());
 			hrepo.save(h);
 			
