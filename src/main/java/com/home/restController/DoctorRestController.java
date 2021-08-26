@@ -35,12 +35,13 @@ public class DoctorRestController {
 	}
 	
 	
-	@GetMapping("/api/doctor/{doctorId}")
+	@GetMapping("/api/doctor/delete/{doctorId}")
 	public String deleteDoctorById(@PathVariable("doctorId") Integer doctor_id)
 	{
 		 drrepo.deleteById(doctor_id);	
 		return "doctor deleted";
 	}
+	
 	@PostMapping("/api/doctor/register")
 	public String addDoctor(@RequestBody Doctor d)
 	{
