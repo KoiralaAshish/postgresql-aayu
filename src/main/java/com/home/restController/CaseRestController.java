@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.home.model.Cases;
+import com.home.model.Doctor;
 import com.home.repository.CasesRepo;
 
 @RestController
@@ -50,8 +51,21 @@ public class CaseRestController {
 		
 	}
 	
-	
-	
+	@PostMapping("/api/cases/doctor/{cases_id}")
+	public String addDoctor(@PathVariable ("cases_id") String cases_id, Doctor d)
+	{
+		Integer id= Integer.parseInt(cases_id);
+		Cases c= new Cases();
+		c.setStatus("Active");
+		c.setDoctor(d);
+		
+		crepo.save(c);
+		return "added";
+		
+		
+		
+		
+	}
 	
 	
 	
