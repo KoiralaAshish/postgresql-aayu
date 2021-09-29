@@ -49,7 +49,19 @@ public class DoctorRestController {
 		return "doctor added";
 	}
 	
-	
+	@PostMapping("/api/doctor/register/{department_id}")
+	public Integer saveDoctor(@PathVariable("department_id") String department_id, @RequestBody Doctor d)
+	{
+		Integer id= Integer.parseInt(department_id);
+		String contact= d.getContact_phone();
+		String name= d.getDoctor_name();
+		
+		drrepo.saveDoctorDepartment(id,contact,name);	
+		
+		Integer a=drrepo.getDoctorId(d.getDoctor_name(),d.getContact_phone());
+		return a;
+		
+	}
 	
 	
 }
