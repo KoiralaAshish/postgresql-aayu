@@ -33,8 +33,11 @@ public String addDepartment(@RequestBody Department d)
 }
 
 @PostMapping("/api/department/addDepartmentHospital/{id}")
-public String addDepartmentwithHospitalId(@PathVariable ("id") Integer id,@RequestBody Department d)
+public String addDepartmentwithHospitalId(@PathVariable ("hospital_id") String hospital_id,@RequestBody Department d)
 {
+	Integer id= Integer.parseInt(hospital_id);
+	
+	
 	String name= d.getDepartment_name();
 	String ward= d.getWard();
 	Integer a_bed= d.getAvailable_bed();
