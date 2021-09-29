@@ -3,6 +3,7 @@ package com.home.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -10,16 +11,24 @@ import javax.persistence.OneToOne;
 @Entity
 public class Cases {
 @Id
-@GeneratedValue
+@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cases_id;
 	private String status;
+	public String getLocation() {
+		return Location;
+	}
+	public void setLocation(String location) {
+		Location = location;
+	}
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="patient_id")
 	private Patient patient;
 	
+	private String Location;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="doctor_id")
 	private Doctor doctor;
+	
 	
 
 	

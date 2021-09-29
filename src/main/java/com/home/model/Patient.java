@@ -2,13 +2,14 @@ package com.home.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Patient {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int patient_id;
 	private String patient_name;
 	public String getPatient_name() {
@@ -22,6 +23,7 @@ public class Patient {
 	private String blood_group;
 	private String Patient_case;
 	private String emergency_status;
+	
 	
 
 	public int getPatient_id() {
