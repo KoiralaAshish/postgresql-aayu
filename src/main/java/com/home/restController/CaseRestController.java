@@ -56,6 +56,7 @@ public class CaseRestController {
 	{
 		Integer id= Integer.parseInt(cases_id);
 		Cases c= new Cases();
+		c.setCases_id(id);
 		c.setStatus("Active");
 		c.setDoctor(d);
 		
