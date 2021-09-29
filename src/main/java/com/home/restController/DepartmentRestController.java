@@ -33,9 +33,9 @@ public String addDepartment(@RequestBody Department d)
 }
 
 @PostMapping("/api/department/addDepartmentHospital/{id}")
-public String addDepartmentwithHospitalId(@PathVariable ("hospital_id") String hospital_id,@RequestBody Department d)
+public String addDepartmentwithHospitalId(@PathVariable ("id") String id,@RequestBody Department d)
 {
-	Integer id= Integer.parseInt(hospital_id);
+	Integer hospital_id= Integer.parseInt(id);
 	
 	
 	String name= d.getDepartment_name();
@@ -43,7 +43,7 @@ public String addDepartmentwithHospitalId(@PathVariable ("hospital_id") String h
 	Integer a_bed= d.getAvailable_bed();
 	Integer o_bed= d.getOccupied_bed();
 	
-	drepo.savedepartmentIdHospital(id,name, ward, a_bed, o_bed);
+	drepo.savedepartmentIdHospital(hospital_id,name, ward, a_bed, o_bed);
 	
 	return "Department add success";
 		
