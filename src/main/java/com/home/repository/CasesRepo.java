@@ -14,8 +14,8 @@ public interface CasesRepo extends JpaRepository<Cases, Integer>{
 	
 	@Modifying
 	@Transactional
-	@Query(value="update cases set doctor_id=:doctor_id where cases_id=:id",nativeQuery = true)
-	void saveDoc( @Param("id") Integer id, @Param("doctor_id") Integer doctor_id);
+	@Query(value="update cases set doctor_id=:doctor_id, status=:status where cases_id=:id",nativeQuery = true)
+	void saveDoc( @Param("id") Integer id, @Param("doctor_id") Integer doctor_id, @Param("status") String status);
 
 	
 	@Modifying

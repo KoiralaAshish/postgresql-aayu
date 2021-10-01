@@ -55,8 +55,8 @@ public class CaseRestController {
 	public String addDoctor(@PathVariable ("cases_id") String cases_id,@RequestBody Doctor d)
 	{
 		Integer id= Integer.parseInt(cases_id);
-		
-	crepo.saveDoc(id,d.getDoctor_id());
+		d.setStatus("Active");
+	crepo.saveDoc(id,d.getDoctor_id(),d.getStatus());
 		
 		
 		return "added";
