@@ -52,6 +52,7 @@ public class patientRestController {
 		c.setStatus("New");
 		crepo.save(c);
 		return "Patient added";
+		
 	}
 	
 	

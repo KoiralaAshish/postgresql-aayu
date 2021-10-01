@@ -16,8 +16,22 @@ public class Doctor {
 	private int doctor_id;
 private String doctor_name;
 private byte[] image;
+private String status;
+private String availability;
 
 
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
+public String getAvailability() {
+	return availability;
+}
+public void setAvailability(String availability) {
+	this.availability = availability;
+}
 private String contact_phone;
 
 
