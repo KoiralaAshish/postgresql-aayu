@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.home.model.Cases;
 import com.home.model.Patient;
+import com.home.repository.CasesRepo;
 import com.home.repository.patientRepo;
 
 @RestController
@@ -18,6 +20,8 @@ public class patientRestController {
 
 	@Autowired
 	patientRepo prepo;
+	@Autowired
+	CasesRepo crepo;
 	
 	@GetMapping("/api/patient/list")
 	public List<Patient> getlist()
@@ -43,6 +47,10 @@ public class patientRestController {
 	public String save(@RequestBody Patient p)
 	{
 		prepo.save(p);
+		Cases c= new Cases();
+		c.setPatient(p);
+		c.setStatus("New");
+		crepo.save(c);
 		return "Patient added";
 	}
 	

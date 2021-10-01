@@ -52,22 +52,28 @@ public class CaseRestController {
 	}
 	
 	@PostMapping("/api/cases/doctor/{cases_id}")
-	public String addDoctor(@PathVariable ("cases_id") String cases_id, Doctor d)
+	public String addDoctor(@PathVariable ("cases_id") String cases_id,@RequestBody Doctor d)
 	{
 		Integer id= Integer.parseInt(cases_id);
-		Cases c= new Cases();
-		c.setCases_id(id);
-		c.setStatus("Active");
-		c.setDoctor(d);
 		
-		crepo.save(c);
+	crepo.saveDoc(id,d.getDoctor_id());
+		
+		
 		return "added";
-		
-		
-		
 		
 	}
 	
+	@PostMapping("/api/cases/delete_doctor")
+	public String deleteDoctor(@RequestBody Cases c)
+	{
+		c.setStatus("Completed");
+		
+	crepo.deleteDoc(c.getCases_id(),c.getStatus());
+		
+		
+		return "deleted";
+		
+	}
 	
 	
 
