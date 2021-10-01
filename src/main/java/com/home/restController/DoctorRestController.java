@@ -64,4 +64,43 @@ public class DoctorRestController {
 	}
 	
 	
+	
+	@PostMapping("/api/doctor/editstatus/{doctor_id}")
+	public String changeStatus(@PathVariable("doctor_id") String doctor_id, @RequestBody Doctor d)
+	{
+		Integer id= Integer.parseInt(doctor_id);
+		
+		drrepo.editStatus(id, d.getStatus());
+		
+		return "status edited";
+		
+		
+	}
+	
+	@PostMapping("/api/doctor/edit/{doctor_id}")
+	public String change(@PathVariable("doctor_id") String doctor_id, @RequestBody Doctor d)
+	{
+		Integer id= Integer.parseInt(doctor_id);
+		
+		drrepo.edit(id, d.getStatus(), d.getAvailability(),d.getContact_phone(),d.getDoctor_name());
+		
+		return "status edited";
+		
+	}
+	
+	@PostMapping("/api/doctor/editavailability/{doctor_id}")
+	public String changeAvailability(@PathVariable("doctor_id") String doctor_id, @RequestBody Doctor d)
+	{
+		Integer id= Integer.parseInt(doctor_id);
+		
+		drrepo.editAvailability(id, d.getAvailability());
+		
+		return "status edited";
+		
+	}
+	
+	
+	
+	
+	
 }

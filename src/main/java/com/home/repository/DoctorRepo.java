@@ -23,6 +23,24 @@ public interface DoctorRepo extends JpaRepository<Doctor, Integer>{
 	
 	@Query(value="select doctor_id from doctor where doctor_name=:name and contact_phone=:phone", nativeQuery = true)
 	Integer getDoctorId(@Param("name") String name, @Param("phone") String phone );
+
+
+@Modifying
+@Transactional
+@Query(value="update doctor set status=:sttus where doctor_id=:id", nativeQuery = true)
+	void editStatus(@Param("id") Integer id, @Param("sttus") String sttus);
+
+
+@Modifying
+@Transactional
+@Query(value="update doctor set status=:sttus,availability=:availability,contact_phone=:contact_phone,doctor_name=:doctor_name where doctor_id=:id", nativeQuery = true)
+void edit(@Param("id") Integer id, @Param("sttus") String sttus,@Param("availability") String availability,@Param("contact_phone") String contact_phone,@Param("doctor_name") String doctor_name);
+
+
+@Modifying
+@Transactional
+@Query(value="update doctor set availability=:availability where doctor_id=:id", nativeQuery = true)
+void editAvailability(@Param("id") Integer id, @Param("availability") String availability);
 	
 	
 	
