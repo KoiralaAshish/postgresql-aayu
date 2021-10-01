@@ -41,6 +41,10 @@ void edit(@Param("id") Integer id, @Param("sttus") String sttus,@Param("availabi
 @Transactional
 @Query(value="update doctor set availability=:availability where doctor_id=:id", nativeQuery = true)
 void editAvailability(@Param("id") Integer id, @Param("availability") String availability);
+
+
+@Query(value="select department_id from doctor where doctor_id=:doctor_id", nativeQuery = true)
+Integer findDepartment(@Param("doctor_id") Integer doctor_id);
 	
 	
 	

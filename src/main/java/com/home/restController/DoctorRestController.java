@@ -99,7 +99,14 @@ public class DoctorRestController {
 		
 	}
 	
+	@GetMapping("/api/doctor/getdepartment/{doctor_id}")
+	public Integer getDepartmentId(@PathVariable("doctor_id") String doctor_id)
+	{
+		Integer id= Integer.parseInt(doctor_id);
+	return 	drrepo.findDepartment(id);
 	
+		
+	}
 	
 	
 	

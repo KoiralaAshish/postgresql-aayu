@@ -18,6 +18,8 @@ private String doctor_name;
 private byte[] image;
 private String status;
 private String availability;
+private String username;
+private String password;
 
 
 public String getStatus() {

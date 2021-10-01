@@ -74,7 +74,13 @@ public List<Department> showDepartment()
 }
 
 
-
+@GetMapping("/api/department/gethospital/{department_id}")
+public Integer getHospitalId(@PathVariable ("department_id") String department_id)
+{
+	Integer id= Integer.parseInt(department_id);
+	return drepo.findhospitalID(id);
+	
+}
 
 
 	
