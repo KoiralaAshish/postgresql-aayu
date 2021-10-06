@@ -1,5 +1,7 @@
 package com.home.repository;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -45,6 +47,10 @@ void editAvailability(@Param("id") Integer id, @Param("availability") String ava
 
 @Query(value="select department_id from doctor where doctor_id=:doctor_id", nativeQuery = true)
 Integer findDepartment(@Param("doctor_id") Integer doctor_id);
+
+
+@Query(value="select * from doctor where username=:username",nativeQuery = true)
+Optional<Doctor> getdoctordetails(@Param("username") String username);
 	
 	
 	

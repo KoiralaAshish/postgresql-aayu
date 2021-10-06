@@ -59,7 +59,7 @@ public class DoctorRestController {
 		String availability= d.getAvailability();
 		String status=d.getStatus();
 		Random ran= new Random();
-		d.setUsername("Doctor"+name+ran.nextInt(1000));
+		d.setUsername("doctor"+name+ran.nextInt(1000));
 		String username= d.getUsername();
 		String password=d.getPassword();
 	
@@ -114,9 +114,15 @@ public class DoctorRestController {
 		Integer id= Integer.parseInt(doctor_id);
 	return 	drrepo.findDepartment(id);
 	
-		
 	}
 	
+	@PostMapping("/api/doctor/doctordetails")
+	public Optional<Doctor> getDoctorDetails (@RequestBody Doctor d)
+	{
+		Optional<Doctor> doc= drrepo.getdoctordetails(d.getUsername());
+		
+		return doc;		
+	}
 	
 	
 	
