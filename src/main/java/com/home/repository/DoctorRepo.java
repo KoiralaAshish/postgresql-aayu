@@ -16,8 +16,8 @@ public interface DoctorRepo extends JpaRepository<Doctor, Integer>{
 	
 	@Modifying
 	@Transactional
-	@Query(value="insert into doctor (doctor_name,contact_phone,department_id)"+" values(:name,:contact,:id)",nativeQuery = true)
-			void saveDoctorDepartment(@Param("id") Integer id,@Param("contact") String contact, @Param("name")String name);
+	@Query(value="insert into doctor (doctor_name,contact_phone,department_id,availability,status,username,password)"+" values(:name,:contact,:id,:availability,:status,:username,:password)",nativeQuery = true)
+			void saveDoctorDepartment(@Param("id") Integer id,@Param("contact") String contact, @Param("name")String name, @Param("availability") String availability, @Param("status") String status, @Param("username") String username, @Param("password") String password);
 
 	
 	

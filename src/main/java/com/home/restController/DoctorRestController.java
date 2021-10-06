@@ -2,6 +2,7 @@ package com.home.restController;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -55,11 +56,19 @@ public class DoctorRestController {
 		Integer id= Integer.parseInt(department_id);
 		String contact= d.getContact_phone();
 		String name= d.getDoctor_name();
+		String availability= d.getAvailability();
+		String status=d.getStatus();
+		Random ran= new Random();
+		d.setUsername("Doctor"+name+ran.nextInt(1000));
+		String username= d.getUsername();
+		String password=d.getPassword();
+	
 		
-		drrepo.saveDoctorDepartment(id,contact,name);	
+		drrepo.saveDoctorDepartment(id,contact,name,availability,status,username,password);	
 		
 		Integer a=drrepo.getDoctorId(d.getDoctor_name(),d.getContact_phone());
 		return a;
+		
 		
 	}
 	
@@ -107,6 +116,11 @@ public class DoctorRestController {
 	
 		
 	}
+	
+	
+	
+	
+	
 	
 	
 	
