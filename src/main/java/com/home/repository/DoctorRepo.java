@@ -58,6 +58,10 @@ Optional<Doctor> getdoctordetails(@Param("username") String username);
 @Query(value="update doctor set password=:password where doctor_id=:id",nativeQuery = true)
 void savepassword(@Param("password") String password,@Param("id") Integer id);
 
+
+
+boolean findbyUsernameandPassword(String username, String password);
+
 	
 	
 	

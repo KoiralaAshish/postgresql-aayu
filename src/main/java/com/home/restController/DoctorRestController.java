@@ -137,6 +137,25 @@ public class DoctorRestController {
 	}
 	
 	
+	@PostMapping("/api/doctor/checkdoctor")
+	public String loginDoctor(@RequestBody Doctor d)
+	{
+		
+		if(drrepo.findbyUsernameandPassword(d.getUsername(),d.getPassword()))
+			return "true";
+		else 
+			return "false";
+			
+			
+			
+		
+		
+		
+		
+		
+		
+	}
+	
 	
 	
 	
