@@ -51,6 +51,13 @@ Integer findDepartment(@Param("doctor_id") Integer doctor_id);
 
 @Query(value="select * from doctor where username=:username",nativeQuery = true)
 Optional<Doctor> getdoctordetails(@Param("username") String username);
+
+
+@Modifying
+@Transactional
+@Query(value="update doctor set password=:password where doctor_id=:id",nativeQuery = true)
+void savepassword(@Param("password") String password,@Param("id") Integer id);
+
 	
 	
 	

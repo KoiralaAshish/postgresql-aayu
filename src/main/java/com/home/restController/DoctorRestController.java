@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -124,6 +125,16 @@ public class DoctorRestController {
 		return doc;		
 	}
 	
+	
+	@PostMapping("/api/doctor/addpassword/{doctor_id}")
+	public String addPassword(@PathVariable("doctor_id") String doctor_id, @RequestBody Doctor d)
+	{
+		Integer id= Integer.parseInt(doctor_id);
+		d.setPassword(DigestUtils.md5DigestAsHex(d.getPassword().getBytes()));
+		drrepo.savepassword(d.getPassword(),id);
+		
+		return "updated password";
+	}
 	
 	
 	
