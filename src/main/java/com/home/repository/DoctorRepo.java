@@ -60,7 +60,7 @@ void savepassword(@Param("password") String password,@Param("id") Integer id);
 
 
 
-boolean findbyUsernameandPassword(String username, String password);
+Doctor findByUsernameAndPassword(String username, String password);
 
 	
 	

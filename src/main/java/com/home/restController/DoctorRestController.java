@@ -47,6 +47,7 @@ public class DoctorRestController {
 	@PostMapping("/api/doctor/register")
 	public String addDoctor(@RequestBody Doctor d)
 	{
+		d.setPassword(DigestUtils.md5DigestAsHex(d.getPassword().getBytes()));
 		drrepo.save(d);
 		return "doctor added";
 	}
@@ -140,20 +141,17 @@ public class DoctorRestController {
 	@PostMapping("/api/doctor/checkdoctor")
 	public String loginDoctor(@RequestBody Doctor d)
 	{
+		d.setPassword(DigestUtils.md5DigestAsHex(d.getPassword().getBytes()));
 		
-		if(drrepo.findbyUsernameandPassword(d.getUsername(),d.getPassword()))
-			return "true";
-		else 
+		if(drrepo.findByUsernameAndPassword(d.getUsername(), d.getPassword())==null)
+		{
 			return "false";
+		}
+		else
+		{
+			return "true";
+		}
 			
-			
-			
-		
-		
-		
-		
-		
-		
 	}
 	
 	
