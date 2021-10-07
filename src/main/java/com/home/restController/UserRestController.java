@@ -58,8 +58,7 @@ public class UserRestController {
 		
 			return urepo.hospitalIdFind(u.getUsername(), u.getPassword());
 			
-			
-		
+					
 		}
 		
 				
