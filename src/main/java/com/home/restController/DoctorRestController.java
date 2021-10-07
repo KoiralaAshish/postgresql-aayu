@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.home.model.Doctor;
+import com.home.repository.CasesRepo;
 import com.home.repository.DoctorRepo;
 
 @RestController
@@ -22,6 +23,8 @@ public class DoctorRestController {
 
 	@Autowired
 	private DoctorRepo drrepo;
+	@Autowired
+	private CasesRepo crepo;
 	
 	@GetMapping("/api/doctor/list")
 	public List<Doctor> findall()
@@ -153,6 +156,23 @@ public class DoctorRestController {
 		}
 			
 	}
+	
+	
+	
+	@PostMapping("/api/doctor/getcases")
+	public Integer getcases( @RequestBody Doctor d)
+	{
+		
+		
+		return crepo.getcases(d.getDoctor_id(),"Active");
+		
+		
+		
+		
+		
+	}
+	
+	
 	
 	
 	

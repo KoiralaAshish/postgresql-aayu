@@ -62,6 +62,10 @@ void savepassword(@Param("password") String password,@Param("id") Integer id);
 
 Doctor findByUsernameAndPassword(String username, String password);
 
+
+
+
+
 	
 	
 	

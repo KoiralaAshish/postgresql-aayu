@@ -22,6 +22,9 @@ public interface CasesRepo extends JpaRepository<Cases, Integer>{
 	@Transactional
 	@Query(value="update cases set doctor_id=null,status=:compl where cases_id=:id",nativeQuery = true)
 	void deleteDoc(@Param("id") Integer id, @Param("compl") String compl);
+
+@Query(value="select cases_id from cases where doctor_id =:id and status=:string",nativeQuery = true)
+	Integer getcases(@Param("id")  Integer id, @Param("string") String string);
 	
 	
 	
