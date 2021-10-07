@@ -48,6 +48,7 @@ public class CaseRestController {
 	public Optional<Cases> editCases(@PathVariable ("id") Integer id)
 	{
 		return crepo.findById(id);
+	
 		
 	}
 	
